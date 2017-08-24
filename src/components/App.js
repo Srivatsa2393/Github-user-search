@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import Header from './common/Header';
 
 class App extends Component {
   render() {
-    return <div>Hello to App</div>;
+    return (
+      <div className="green darken-2 center-align">
+        <Header />
+      </div>
+    );
   }
 }
 
