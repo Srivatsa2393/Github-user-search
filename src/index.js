@@ -6,8 +6,10 @@ import { Provider } from 'react-redux';
 
 import configureStore from './store/configureStore';
 import routes from './routes';
+import { loadRepos } from './actions/reposAction';
 
 const store = configureStore();
+store.dispatch(loadRepos());
 
 render(
   <Provider store={store}>

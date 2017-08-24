@@ -1,12 +1,11 @@
-import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+import { LOAD_REPOS_SUCCESS } from '../actions/types';
 
-export default function reposReducer(state = initialState.repos, action) {
-	switch (action.type) {
-		case types.LOAD_REPOS_SUCCESS: {
-			return action.repos;
-		}
-		default:
-			return state;
-	}
+export default function reposReducer(state = [], action) {
+  switch (action.type) {
+    case LOAD_REPOS_SUCCESS:
+      return action.repos;
+
+    default:
+      return state;
+  }
 }
