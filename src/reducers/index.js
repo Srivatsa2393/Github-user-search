@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 
+import repos from './reposReducer';
+import user from './userReducer';
+
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+	repos,
+	user
 });
 
 export default rootReducer;

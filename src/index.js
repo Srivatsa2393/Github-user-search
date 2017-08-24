@@ -1,23 +1,16 @@
-// import materializeCSS from 'materialize-css/dist/css/materialize.min.css';
-//import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import materializeCSS from 'materialize-css/dist/css/materialize.min.css';
+import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './components/App';
-import AboutPage from './components/about/AboutPage';
-import reducers from './reducers';
+import configureStore from './store/configureStore';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const store = configureStore();
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <Router history={browserHistory}>
-      <Route path="/" component={App} />
-      <Route path="/about" component={AboutPage} />
-    </Router>
+render(
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
   </Provider>,
-  document.querySelector('.container')
+  document.getElementById('app')
 );
