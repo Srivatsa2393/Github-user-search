@@ -1,21 +1,20 @@
-// Set up your application entry point here...
-
+// import materializeCSS from 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
-import { render } from 'react-dom';
-import { Router, browserHistory } from 'react-router';
-import 'materialize-css/dist/css/materialize.min.css';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import routes from './routes';
-import configureStore from './store/configureStore';
+import App from './components/App';
+import reducers from './reducers';
 
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-const store = configureStore();
-
-
-render(
-	<Provider store={store}>
-		<Router history={browserHistory} routes={routes} />
-	</Provider>,
-	document.getElementById('app')
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App} />
+    </Router>
+  </Provider>,
+  document.querySelector('.container')
 );

@@ -2,22 +2,26 @@ import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
 const Header = () => {
-    return(
-        <nav className="nav-wrapper blue darken-3">
-            <ul className="left active">
-                <li>
-                    <IndexLink to="/">
-                        <i className="fa fa-home material-icons" aria-hidden="true" />
-                    </IndexLink>
-                </li>
-                <li>
-                    <Link to="/about">
-                        <i className="fa fa-info-circle material-icons" aria-hidden="true" />
-                    </Link>
-                </li>
-            </ul>
-        </nav>
-    );
+  return (
+    <nav className="nav-wrapper grey darken-3">
+      <ul className="left active">
+        <li>
+          <IndexLink to="/">
+            <i class="material-icons" aria-hidden="true">
+              Home
+            </i>
+          </IndexLink>
+        </li>
+        <li>
+          <Link to="/about">
+            <i class="material-icons" aria-hidden="true">
+              About
+            </i>
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Header;
