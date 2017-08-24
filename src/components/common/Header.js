@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
+import { Icon } from 'react-materialize';
 
 const Header = () => {
   return (
