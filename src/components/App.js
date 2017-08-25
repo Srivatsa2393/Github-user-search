@@ -6,7 +6,7 @@ import Header from './common/Header';
 class App extends Component {
   render() {
     return (
-      <div className="green darken-2 center-align">
+      <div className="red darken-2 center-align">
         <Header />
         {this.props.children}
       </div>
