@@ -8,12 +8,13 @@ export function loadReposSuccess(repos) {
   };
 }
 
-export function loadRepos() {
+export function loadRepos(user) {
   return function(dispatch) {
     axios
-      .get('https://api.github.com/users/Srivatsa2393/repos')
+      .get(`https://api.github.com/users/${user}/repos`)
       .then(repos => {
         dispatch(loadReposSuccess(repos.data));
+        console.log('receiving the following user data: ' + repos.data);
       })
       .catch(err => {
         throw err;
