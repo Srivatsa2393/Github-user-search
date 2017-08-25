@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as userActions from '../../actions/userAction';
 
 import Searchbar from './Searchbar';
+import Repo from './Repo';
 
 class HomePage extends Component {
   constructor(props) {
@@ -25,6 +26,14 @@ class HomePage extends Component {
     this.props.actions.loadUser(this.state.user);
   }
 
+  repoRow(repo, index) {
+    return (
+      <div key={index}>
+        <Repo key={repo.id} repo={repo} />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="container">
@@ -33,6 +42,7 @@ class HomePage extends Component {
           onChange={this.updateSearch}
           onSave={this.saveSearch}
         />
+        {this.props.repos.map(this.repoRow)}
       </div>
     );
   }

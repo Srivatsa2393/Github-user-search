@@ -1,9 +1,8 @@
-import axios from 'axios';
-import { LOAD_USER_SUCCESS } from './types';
+import * as types from './actionTypes';
 
 export function loadUser(user) {
   return {
-    type: LOAD_USER_SUCCESS,
-    payload: user
+    type: types.LOAD_USER_SUCCESS,
+    user
   };
 }

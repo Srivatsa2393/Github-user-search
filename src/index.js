@@ -19,7 +19,7 @@ function handleChange() {
 }
 
 const store = configureStore();
-store.dispatch(loadRepos());
+store.dispatch(loadRepos(store.getState().user));
 store.subscribe(handleChange);
 
 render(
